@@ -26,3 +26,9 @@ app.add('https://people.sc.fsu.edu/~jburkardt/data/csv/airtravel.csv', data_type
 There is a size limit allowed for csv file beyond which it can throw error. This limit is set by the LLMs. Please consider chunking large csv files into smaller csv files.
 </Note>
 
+<Tips>
+- Make sure to include relevant meaningful file names to improve the quality of the retrieval and embedding. If you refer to the load_data function in the source code [here](https://github.com/embedchain/embedchain/blob/main/embedchain/loaders/csv.py), the file name is included in the meta data. Embeddings will be generated on the values of the row, and the meta data associated with the rows (in this case: row number and file name). 
+
+- Embedchain does not use a pandas agent or tool to analyze csv files. Hence, if you want to run any analysis that requires data transformations or aggregations, consider pairing the RAG pipeline with an agent (built using CrewAI, LangChain, etc.) or OpenAI Assitant.
+
+</Tips>
